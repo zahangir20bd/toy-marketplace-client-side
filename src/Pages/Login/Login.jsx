@@ -1,10 +1,12 @@
 import { Form, Link } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -14,11 +16,23 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
+        setError("");
         const user = result.user;
         console.log(user);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error.message));
   };
+
+  // Login with Google Handler
+  const handleGoogleSign = async () => {
+    setError("");
+    try {
+      await googleSignIn();
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <div
       className="hero min-h-screen bg-base-200 "
@@ -67,7 +81,7 @@ const Login = () => {
                   </Link>
                 </label>
               </div>
-              <p className="text-red-700 text-center"></p>
+              <p className="text-red-700 text-center">{error}</p>
               <div className="form-control">
                 <input
                   className="btn btn-warning "
@@ -79,7 +93,10 @@ const Login = () => {
           </Form>
           <div className="divider">Or Continue With</div>
           <div className="mx-10 mb-10">
-            <button className="btn btn-outline btn-warning text-orange-900 w-full mb-2">
+            <button
+              onClick={handleGoogleSign}
+              className="btn btn-outline btn-warning text-orange-900 w-full mb-2"
+            >
               <FaGoogle className="me-1" />
               <span> Google</span>
             </button>

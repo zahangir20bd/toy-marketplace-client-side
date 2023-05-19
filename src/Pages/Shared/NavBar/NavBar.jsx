@@ -98,13 +98,19 @@ const NavBar = () => {
         {user ? (
           <div className="flex items-center">
             {user.photoURL ? (
-              <img src={user.photoURL} />
+              <div
+                className="tooltip hover:tooltip-open tooltip-left"
+                data-tip={user.displayName ? user.displayName : user.email}
+              >
+                <img className="w-12 rounded-full" src={user.photoURL} />
+              </div>
             ) : (
-              <FaUserCircle
-                data-tooltip-id="user-tooltip"
-                data-tooltip-content={user?.email}
-                style={{ fontSize: "40px" }}
-              ></FaUserCircle>
+              <div
+                className="tooltip hover:tooltip-open tooltip-left"
+                data-tip={user.displayName ? user.displayName : user.email}
+              >
+                <FaUserCircle style={{ fontSize: "48px" }}></FaUserCircle>
+              </div>
             )}
 
             <button onClick={handleLogOut} className="btn btn-warning ms-3">
