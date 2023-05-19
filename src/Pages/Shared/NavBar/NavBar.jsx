@@ -68,7 +68,10 @@ const NavBar = () => {
           </ul>
         </div>
         <Link to="/">
-          <img src={logo} alt="Web site Logo" className="h-16" />
+          <div className="flex items-center">
+            <img src={logo} alt="Web site Logo" className="h-16" />
+            <span className="text-3xl font-bold">Toy-Galaxy</span>
+          </div>
         </Link>
         {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
       </div>

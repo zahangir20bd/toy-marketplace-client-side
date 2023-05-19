@@ -78,13 +78,12 @@ const Register = () => {
             </div>
             <p className="text-red-700 text-center">{"error"}</p>
             <div className="form-control mt-6">
-              <button
-                type="submit"
+              <input
                 disabled={!accept}
                 className="btn btn-warning"
-              >
-                Register
-              </button>
+                type="submit"
+                value="Register"
+              />
             </div>
             <div>
               <span>Do You have an account? Go to... </span>
