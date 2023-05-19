@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../../src/assets/images/logo.svg";
+import logo from "../../../assets/images/logo.svg";
 
 const NavBar = () => {
   return (
@@ -114,7 +114,9 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         <Link>
-          <button className="btn btn-warning">Login</button>
+          <button className="btn btn-warning  bg-orange-400 hover:bg-orange-500">
+            Login
+          </button>
         </Link>
       </div>
     </div>
