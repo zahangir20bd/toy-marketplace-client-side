@@ -13,6 +13,11 @@ const Footer = () => {
             <br />
             Providing Playful Toys for Babies since 2020
           </p>
+          <p className="mt-5">
+            <span className="font-semibold">Address:</span> GA-129, Hajabribari,
+            Mohakhali Wireless,
+            <br /> Dhaka-1212
+          </p>
         </div>
         <div>
           <span className="footer-title">Services</span>
@@ -24,15 +29,15 @@ const Footer = () => {
         <div>
           <span className="footer-title">Company</span>
           <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Blogs</a>
         </div>
         <div>
-          <span className="footer-title">Legal</span>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <span className="footer-title">Contact Us</span>
+          <span className="font-semibold">Email: </span>
+          <a className="link link-hover">eng.zahangir20bd@gmail.com</a>
+          <span className="font-semibold">Mobile: </span>
+          <a className="link link-hover">+880 1611 391706</a>
         </div>
         <div>
           <span className="footer-title">Social</span>
@@ -71,7 +76,7 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-          <div className="form-control w-80">
+          <div className="form-control w-80 mt-8">
             <label className="label">
               <span className="label-text">Enter your email address</span>
             </label>
