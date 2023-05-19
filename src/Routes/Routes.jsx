@@ -4,6 +4,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Blogs from "../Pages/Blogs/Blogs";
+import AllToys from "../Pages/AllToys/AllToys";
+import AddToy from "../Pages/AddToy/AddToy";
+import MyToys from "../Pages/MyToys/MyToys";
 
 const router = createBrowserRouter([
   {
@@ -16,15 +19,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/alltoys",
-        element: <div>ALl toys</div>,
+        element: <AllToys></AllToys>,
       },
       {
         path: "/mytoys",
-        element: <div>My Toys</div>,
+        element: <MyToys></MyToys>,
       },
       {
         path: "/addtoys",
-        element: <div>Add Toys</div>,
+        element: <AddToy></AddToy>,
       },
       {
         path: "/blogs",

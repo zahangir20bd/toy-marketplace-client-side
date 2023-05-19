@@ -64,7 +64,9 @@ const NavBar = () => {
         <Link to="/">
           <div className="flex items-center">
             <img src={logo} alt="Web site Logo" className="h-16" />
-            <span className="text-3xl font-bold">Toy-Galaxy</span>
+            <span className="text-3xl font-bold hidden md:block">
+              Toy-Galaxy
+            </span>
           </div>
         </Link>
         {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
