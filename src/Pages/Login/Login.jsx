@@ -4,9 +4,10 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn, googleSignIn, gitHubSignIN } = useContext(AuthContext);
   const [error, setError] = useState("");
 
+  //   SignIn Handler with email and Password
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -23,11 +24,21 @@ const Login = () => {
       .catch((error) => setError(error.message));
   };
 
-  // Login with Google Handler
+  // Google SignIn Handler
   const handleGoogleSign = async () => {
     setError("");
     try {
       await googleSignIn();
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  // Github SignIn Handler
+  const handleGithubSign = async () => {
+    setError("");
+    try {
+      await gitHubSignIN();
     } catch (error) {
       setError(error.message);
     }
@@ -100,7 +111,10 @@ const Login = () => {
               <FaGoogle className="me-1" />
               <span> Google</span>
             </button>
-            <button className="btn btn-outline btn-warning text-orange-900 w-full">
+            <button
+              onClick={handleGithubSign}
+              className="btn btn-outline btn-warning text-orange-900 w-full"
+            >
               <FaGithub className="me-1" />
               <span> GitHub</span>
             </button>
