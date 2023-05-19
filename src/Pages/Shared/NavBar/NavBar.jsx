@@ -1,8 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo.svg";
 import "../../../App.css";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        //
+      })
+      .catch((error) => console.log(error));
+  };
+  console.log(user);
   return (
     <div className="navbar bg-base-300">
       <div className="navbar-start">
@@ -34,13 +46,16 @@ const NavBar = () => {
             <li>
               <NavLink to="/alltoys">All Toys</NavLink>
             </li>
-            <li>
-              <NavLink to="/mytoys">My Toys</NavLink>
-            </li>
-            <li>
-              <NavLink to="/addtoys">Add A Toy</NavLink>
-            </li>
-
+            {user && (
+              <>
+                <li>
+                  <NavLink to="/mytoys">My Toys</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/addtoys">Add A Toy</NavLink>
+                </li>
+              </>
+            )}
             <li>
               <NavLink to="/blogs">Blogs</NavLink>
             </li>
@@ -62,21 +77,43 @@ const NavBar = () => {
           <li>
             <NavLink to="/alltoys">All Toys</NavLink>
           </li>
-          <li>
-            <NavLink to="/mytoys">My Toys</NavLink>
-          </li>
-          <li>
-            <NavLink to="/addtoys">Add A Toy</NavLink>
-          </li>
+          {user && (
+            <>
+              <li>
+                <NavLink to="/mytoys">My Toys</NavLink>
+              </li>
+              <li>
+                <NavLink to="/addtoys">Add A Toy</NavLink>
+              </li>
+            </>
+          )}
           <li>
             <NavLink to="/blogs">Blogs</NavLink>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <button className="btn btn-warning">Login</button>
-        </Link>
+        {user ? (
+          <div className="flex items-center">
+            {user.photoURL ? (
+              <img src={user.photoURL} />
+            ) : (
+              <FaUserCircle
+                data-tooltip-id="user-tooltip"
+                data-tooltip-content={user?.email}
+                style={{ fontSize: "40px" }}
+              ></FaUserCircle>
+            )}
+
+            <button onClick={handleLogOut} className="btn btn-warning ms-3">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-warning">Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );
