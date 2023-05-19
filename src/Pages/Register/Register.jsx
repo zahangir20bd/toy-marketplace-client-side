@@ -1,21 +1,43 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Form, Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
   const [accept, setAccept] = useState(false);
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleAccept = (event) => {
     setAccept(event.target.checked);
   };
   return (
     <div
-      className="hero min-h-screen bg-base-200 "
+      className="hero min-h-screen w-full "
       style={{
         backgroundImage: `url("https://images.pexels.com/photos/4862892/pexels-photo-4862892.jpeg?auto=compress&cs=tinysrgb&w=600")`,
       }}
     >
-      <Form onSubmit={"handleRegister"} className="hero-content">
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <Form
+        onSubmit={handleRegister}
+        className="hero-content md:w-2/3 lg:w-1/3 w-full"
+      >
+        <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
           <div className="card-body">
             <h1 className="text-5xl font-bold opacity-70">Register!</h1>
             <div className="form-control">
@@ -24,7 +46,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
-                name="username"
+                name="name"
                 placeholder="Your Name"
                 className="input input-bordered"
                 required
@@ -60,7 +82,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
-                name="image"
+                name="photo"
                 placeholder="Image URL"
                 className="input input-bordered"
               />
@@ -85,9 +107,9 @@ const Register = () => {
                 value="Register"
               />
             </div>
-            <div>
-              <span>Do You have an account? Go to... </span>
-              <Link className="text-primary" to="/login">
+            <div className="text-center">
+              <span>Have an account? Go to... </span>
+              <Link className="text-warning font-bold" to="/login">
                 Login
               </Link>
             </div>

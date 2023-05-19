@@ -1,13 +1,23 @@
 import { Form, Link } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div
@@ -65,24 +75,24 @@ const Login = () => {
                   value="Login"
                 />
               </div>
-              <div>
-                <span>New to Toy-Galaxy? Go to... </span>
-                <Link className="text-primary" to="/register">
-                  Register
-                </Link>
-              </div>
             </div>
           </Form>
           <div className="divider">Or Continue With</div>
           <div className="mx-10 mb-10">
             <button className="btn btn-outline btn-warning text-orange-900 w-full mb-2">
               <FaGoogle className="me-1" />
-              <span>Login With Google</span>
+              <span> Google</span>
             </button>
             <button className="btn btn-outline btn-warning text-orange-900 w-full">
               <FaGithub className="me-1" />
-              <span>Login With GitHub</span>
+              <span> GitHub</span>
             </button>
+            <div className="mt-6 text-center">
+              <span>New to Toy-Galaxy? Go to... </span>
+              <Link className="text-warning font-bold" to="/register">
+                Register
+              </Link>
+            </div>
           </div>
         </div>
       </div>
