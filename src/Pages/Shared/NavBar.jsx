@@ -1,6 +1,9 @@
+import { Link, NavLink } from "react-router-dom";
+import logo from "../../../src/assets/images/logo.svg";
+
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,8 +27,18 @@ const NavBar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <NavLink>Home</NavLink>
             </li>
+            <li>
+              <NavLink>All Toys</NavLink>
+            </li>
+            <li>
+              <NavLink>My Toys</NavLink>
+            </li>
+            <li>
+              <NavLink>Add A Toy</NavLink>
+            </li>
+
             <li tabIndex={0}>
               <a className="justify-between">
                 Parent
@@ -49,16 +62,28 @@ const NavBar = () => {
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <NavLink>Blogs</NavLink>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link to="/">
+          <img src={logo} alt="Web site Logo" className="h-16" />
+        </Link>
+        {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <NavLink>Home</NavLink>
+          </li>
+          <li>
+            <NavLink>All Toys</NavLink>
+          </li>
+          <li>
+            <NavLink>My Toys</NavLink>
+          </li>
+          <li>
+            <NavLink>Add A Toy</NavLink>
           </li>
           <li tabIndex={0}>
             <a>
@@ -83,12 +108,14 @@ const NavBar = () => {
             </ul>
           </li>
           <li>
-            <a>Item 3</a>
+            <NavLink>Blogs</NavLink>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <Link>
+          <button className="btn btn-warning">Login</button>
+        </Link>
       </div>
     </div>
   );
