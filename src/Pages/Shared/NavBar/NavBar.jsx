@@ -22,6 +22,7 @@ const NavBar = () => {
               />
             </svg>
           </label>
+
           <ul
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
@@ -114,9 +115,7 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         <Link to="/login">
-          <button className="btn btn-warning  bg-orange-400 hover:bg-orange-500">
-            Login
-          </button>
+          <button className="btn btn-warning">Login</button>
         </Link>
       </div>
     </div>

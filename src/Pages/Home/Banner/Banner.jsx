@@ -19,9 +19,7 @@ const Banner = () => {
             explorer and embark on an interstellar quest for fun. Toy Galaxy:
             Ignite your imagination, one toy at a time!
           </p>
-          <button className="btn btn-warning bg-orange-500 hover:bg-orange-600">
-            Get Started
-          </button>
+          <button className="btn btn-warning">Get Started</button>
         </div>
       </div>
     </div>
