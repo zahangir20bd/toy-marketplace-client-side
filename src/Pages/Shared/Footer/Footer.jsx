@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../../assets/images/logo.svg";
 
 const Footer = () => {
@@ -28,9 +29,11 @@ const Footer = () => {
         </div>
         <div>
           <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
+          <Link className="link link-hover">About us</Link>
           <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Blogs</a>
+          <Link to="/blogs" className="link link-hover">
+            Blogs
+          </Link>
         </div>
         <div>
           <span className="footer-title">Contact Us</span>

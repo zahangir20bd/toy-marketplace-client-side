@@ -1,4 +1,5 @@
 import useDynamicTitle from "../../../useDynamicTitle/useDynamicTitle";
+import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 
@@ -8,6 +9,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <Gallery></Gallery>
+      <About></About>
       <h2>This is Home</h2>
     </div>
   );
