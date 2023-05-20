@@ -1,10 +1,19 @@
-import { useLoaderData } from "react-router-dom";
 import useDynamicTitle from "../../useDynamicTitle/useDynamicTitle";
 import ToyTable from "./ToyTable/ToyTable";
+import { useEffect, useState } from "react";
 
 const AllToys = () => {
   useDynamicTitle("All-Toys");
-  const allToysData = useLoaderData();
+
+  const [allToysData, setAllToysData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/alltoys")
+      .then((res) => res.json())
+      .then((data) => setAllToysData(data));
+  }, []);
+
+  // const allToysData = useLoaderData();
   return (
     <div className="my-20">
       <h2 className="mt-10 text-3xl text-center font-bold">

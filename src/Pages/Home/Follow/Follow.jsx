@@ -20,8 +20,12 @@ const Follow = () => {
         Daily inspiration on Our Social Media
       </h4>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10 mx-10">
-        <img src={img1} alt="" />
-        <img src={img2} alt="" />
+        <div>
+          <img src={img1} alt="" />
+        </div>
+        <div>
+          <img src={img2} alt="" />
+        </div>
         <img src={img3} alt="" />
         <img src={img4} alt="" />
         <img src={img5} alt="" />
