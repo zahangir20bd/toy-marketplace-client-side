@@ -1,0 +1,38 @@
+[
+    {
+        "_id": 1,
+        "toy_name": "Stuffed Bear",
+        "toy_picture": "https://example.com/toy_pictures/bear.jpg",
+        "seller_name": "ToyLand Store",
+        "seller_email": "toys@toylandstore.com",
+        "sub_category": "Stuffed Animals",
+        "price": 19.99,
+        "rating": 4.5,
+        "available_quantity": 10,
+        "details_description": "This adorable stuffed bear is perfect for cuddling. It is made from high-quality materials and is super soft."
+    },
+    {
+        "_id": 2,
+        "toy_name": "LEGO City Fire Truck",
+        "toy_picture": "https://example.com/toy_pictures/fire_truck.jpg",
+        "seller_name": "BrickMaster Shop",
+        "seller_email": "sales@brickmastershop.com",
+        "sub_category": "Building Blocks",
+        "price": 39.99,
+        "rating": 4.8,
+        "available_quantity": 5,
+        "details_description": "Build your own LEGO City Fire Truck and save the day! This set includes all the pieces needed to construct the fire truck, along with two firefighter minifigures."
+    },
+    {
+        "_id": 3,
+        "toy_name": "Barbie Dreamhouse",
+        "toy_picture": "https://example.com/toy_pictures/dreamhouse.jpg",
+        "seller_name": "The Toy Emporium",
+        "seller_email": "sales@toyemporium.com",
+        "sub_category": "Dolls",
+        "price": 99.99,
+        "rating": 4.7,
+        "available_quantity": 3,
+        "details_description": "Experience the luxurious life with the Barbie Dreamhouse! This fully furnished dollhouse features multiple rooms, a working elevator, and fun accessories."
+    }
+]
