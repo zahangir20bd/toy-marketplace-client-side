@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
-  const [accept, setAccept] = useState(false);
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [accept, setAccept] = useState(false);
   const [error, setError] = useState("");
 
   const handleRegister = (event) => {
@@ -33,7 +34,9 @@ const Register = () => {
       createUser(email, password)
         .then((result) => {
           const user = result.user;
-          console.log(user);
+          form.reset();
+          // console.log(user);
+          navigate("/");
         })
         .catch((error) => setError(error));
     }

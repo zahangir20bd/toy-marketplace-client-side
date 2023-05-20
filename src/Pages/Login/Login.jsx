@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
