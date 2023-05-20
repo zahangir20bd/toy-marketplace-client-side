@@ -1,4 +1,4 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -6,6 +6,11 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const Login = () => {
   const { signIn, googleSignIn, gitHubSignIN } = useContext(AuthContext);
   const [error, setError] = useState("");
+
+  // Redirect to expected path
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   //   SignIn Handler with email and Password
   const handleLogin = (event) => {
@@ -19,7 +24,9 @@ const Login = () => {
       .then((result) => {
         setError("");
         const user = result.user;
-        console.log(user);
+        // console.log(user);
+        form.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => setError(error.message));
   };
@@ -29,6 +36,7 @@ const Login = () => {
     setError("");
     try {
       await googleSignIn();
+      navigate(from, { replace: true });
     } catch (error) {
       setError(error.message);
     }
@@ -39,6 +47,7 @@ const Login = () => {
     setError("");
     try {
       await gitHubSignIN();
+      navigate(from, { replace: true });
     } catch (error) {
       setError(error.message);
     }

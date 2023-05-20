@@ -66,7 +66,7 @@ const ShopByCategory = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="w-full grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {miniPoliceCars.map((miniPoliceCar) => (
               <MiniPoliceCar
                 key={miniPoliceCar._id}

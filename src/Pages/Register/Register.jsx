@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
 import { Form, Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -5,22 +6,37 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const Register = () => {
   const [accept, setAccept] = useState(false);
   const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const handleRegister = (event) => {
     event.preventDefault();
+    setError("");
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    console.log(name, email, password, photo);
+    // console.log(name, email, password, photo);
 
-    createUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => console.log(error));
+    // Check Password, Password must be 8 characters and at least one uppercase letter, one lowercase letter, one number and one special character
+    if (
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+        password
+      )
+    ) {
+      setError(
+        "Password must be 8 characters and at least one uppercase letter, one lowercase letter, one number and one special character"
+      );
+      return;
+    }
+    if ((name, email, password)) {
+      createUser(email, password)
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+        })
+        .catch((error) => setError(error));
+    }
   };
 
   const handleAccept = (event) => {
@@ -98,7 +114,7 @@ const Register = () => {
                 Accept <Link className="text-primary">Terms & Condition</Link>
               </span>
             </div>
-            <p className="text-red-700 text-center">{"error"}</p>
+            <p className="text-red-700 text-center">{error}</p>
             <div className="form-control mt-6">
               <input
                 disabled={!accept}
