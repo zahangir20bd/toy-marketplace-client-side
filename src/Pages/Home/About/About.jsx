@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 const About = () => {
   return (
-    <div className="my-20">
-      <h2 className="text-3xl font-bold text-center">About Us</h2>
+    <div className="my-32">
+      <h2 className="text-4xl font-bold text-center mb-16">About Us</h2>
       <div className="hero min-h-screen ">
-        <div className="hero-content flex-col md:mx-10 lg:flex-row-reverse gap-10">
+        <div className="hero-content flex-col md:mx-10 md:flex-row-reverse gap-10">
           <div className="md:w-1/2">
             <img
               src="https://i.ibb.co/rMshHz3/61-VH6-BXu-Da-L-SX450-removebg-preview.png"

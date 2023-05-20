@@ -99,14 +99,14 @@ const NavBar = () => {
           <div className="flex items-center">
             {user.photoURL ? (
               <div
-                className="tooltip hover:tooltip-open tooltip-left"
+                className="tooltip hover:tooltip-open tooltip-left w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
                 data-tip={user.displayName ? user.displayName : user.email}
               >
                 <img className="w-12 rounded-full" src={user.photoURL} />
               </div>
             ) : (
               <div
-                className="tooltip hover:tooltip-open tooltip-left"
+                className="tooltip hover:tooltip-open tooltip-left w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
                 data-tip={user.displayName ? user.displayName : user.email}
               >
                 <FaUserCircle style={{ fontSize: "48px" }}></FaUserCircle>

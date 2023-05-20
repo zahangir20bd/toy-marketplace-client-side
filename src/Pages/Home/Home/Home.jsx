@@ -1,6 +1,7 @@
 import useDynamicTitle from "../../../useDynamicTitle/useDynamicTitle";
 import About from "../About/About";
 import Banner from "../Banner/Banner";
+import Follow from "../Follow/Follow";
 import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
       <Banner></Banner>
       <Gallery></Gallery>
       <About></About>
-      <h2>This is Home</h2>
+      <Follow></Follow>
     </div>
   );
 };
