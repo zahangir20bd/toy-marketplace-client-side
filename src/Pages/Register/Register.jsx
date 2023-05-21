@@ -2,9 +2,10 @@
 import { useContext, useState } from "react";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updatedUserData } = useContext(AuthContext);
   const navigate = useNavigate();
   const [accept, setAccept] = useState(false);
   const [error, setError] = useState("");
@@ -16,7 +17,7 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
+    const photoUrl = form.photo.value;
     // console.log(name, email, password, photo);
 
     // Check Password, Password must be 8 characters and at least one uppercase letter, one lowercase letter, one number and one special character
@@ -34,7 +35,23 @@ const Register = () => {
       createUser(email, password)
         .then((result) => {
           const user = result.user;
+          setError("");
           form.reset();
+
+          updatedUserData(result.user, name, photoUrl)
+            .then(() => {
+              console.log("User Name and Photo Url Updated");
+            })
+            .then((error) => setError(error.message));
+
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User Create Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
           // console.log(user);
           navigate("/");
         })
