@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import useDynamicTitle from "../../useDynamicTitle/useDynamicTitle";
 import ToyTable from "./ToyTable/ToyTable";
 import { useEffect, useState } from "react";
@@ -15,21 +16,21 @@ const AllToys = () => {
   const pageNumbers = [...Array(totalPages).keys()];
   const optionItemsPerPage = [5, 10, 15, 20];
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        `https://toy-galaxy-server-seven.vercel.app/alltoys?page=${currentPage}&limit=${itemsPerPage}`
-      );
-      const data = await response.json();
-      setAllToysData(data);
-    }
-    fetchData();
-  }, [currentPage, itemsPerPage]);
   // useEffect(() => {
-  //   fetch("https://toy-galaxy-server-seven.vercel.app/alltoys")
-  //     .then((res) => res.json())
-  //     .then((data) => setAllToysData(data));
-  // }, []);
+  //   async function fetchData() {
+  //     const response = await fetch(
+  //       `https://toy-galaxy-server-seven.vercel.app/alltoys?page=${currentPage}&limit=${itemsPerPage}`
+  //     );
+  //     const data = await response.json();
+  //     setAllToysData(data);
+  //   }
+  //   fetchData();
+  // }, [currentPage, itemsPerPage]);
+  useEffect(() => {
+    fetch("https://toy-galaxy-server-seven.vercel.app/alltoys")
+      .then((res) => res.json())
+      .then((data) => setAllToysData(data));
+  }, []);
 
   const handleSelectChange = (event) => {
     setItemsPerPage(parseInt(event.target.value));
