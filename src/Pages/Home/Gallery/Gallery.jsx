@@ -1,48 +1,25 @@
+import { useEffect, useState } from "react";
 import Card from "./Card";
-import "./Gallery.css";
+// import "./Gallery.css";
 
 const Gallery = () => {
-  const cards = [
-    {
-      imageSrc:
-        "https://www.shutterstock.com/image-vector/toy-car-cartoon-vector-illustration-260nw-636992845.jpg",
-      title: "Card 1",
-    },
-    {
-      imageSrc:
-        "https://www.shutterstock.com/image-vector/toy-car-cartoon-vector-illustration-260nw-636992845.jpg",
-      title: "Card 2",
-    },
-    {
-      imageSrc:
-        "https://www.shutterstock.com/image-vector/toy-car-cartoon-vector-illustration-260nw-636992845.jpg",
-      title: "Card 2",
-    },
-    {
-      imageSrc:
-        "https://www.shutterstock.com/image-vector/toy-car-cartoon-vector-illustration-260nw-636992845.jpg",
-      title: "Card 2",
-    },
-    {
-      imageSrc:
-        "https://www.shutterstock.com/image-vector/toy-car-cartoon-vector-illustration-260nw-636992845.jpg",
-      title: "Card 2",
-    },
-    {
-      imageSrc:
-        "https://www.shutterstock.com/image-vector/toy-car-cartoon-vector-illustration-260nw-636992845.jpg",
-      title: "Card 2",
-    },
-  ];
+  const [gallery, setGallery] = useState([]);
 
+  useEffect(() => {
+    fetch("gallery.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setGallery(data);
+      });
+  }, []);
   return (
     <div className="my-32">
-      <h2 className="text-4xl text-center font-bold mb-16">
+      <h2 className="text-4xl text-center font-bold mb-20">
         Up Coming Toys Gallery
       </h2>
-      <div className="card-container mb-10">
-        {cards.map((card, index) => (
-          <Card key={index} imageSrc={card.imageSrc} title={card.title} />
+      <div className="w-full px-5 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+        {gallery.map((card) => (
+          <Card key={card.id} card={card} />
         ))}
       </div>
     </div>

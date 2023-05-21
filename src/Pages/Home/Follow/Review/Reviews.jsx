@@ -1,16 +1,16 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const Card = ({ card }) => {
-  const { image, title } = card;
-  const [isHovered, setIsHovered] = useState(true);
+const Reviews = ({ feedback }) => {
+  const { image, title, review } = feedback;
+
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
-    setIsHovered(false);
+    setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(true);
+    setIsHovered(false);
   };
 
   return (
@@ -31,6 +31,7 @@ const Card = ({ card }) => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="p-4 text-white">
             <h2 className="text-2xl font-bold text-center">{title}</h2>
+            <p className="mt-2 text-center">{review}</p>
           </div>
         </div>
       )}
@@ -38,4 +39,4 @@ const Card = ({ card }) => {
   );
 };
 
-export default Card;
+export default Reviews;

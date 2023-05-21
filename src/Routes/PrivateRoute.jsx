@@ -6,9 +6,6 @@ import { Navigate } from "react-router-dom";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
 
-  //   const location = useLocation();
-  //   const navigate = useNavigate();
-
   if (loading) {
     return <BeatLoader className="mx-auto" color="#36d7b7" />;
   }
@@ -16,7 +13,12 @@ const PrivateRoute = ({ children }) => {
   if (user) {
     return children;
   }
-  return <Navigate state={{ from: location }} to="/login" replace></Navigate>;
+
+  const notify = confirm("You have to login first to view details");
+
+  if (notify) {
+    return <Navigate state={{ from: location }} to="/login" replace></Navigate>;
+  }
 };
 
 export default PrivateRoute;
