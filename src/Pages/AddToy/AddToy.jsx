@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import useDynamicTitle from "../../useDynamicTitle/useDynamicTitle";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   useDynamicTitle("Add-Toy");
@@ -42,7 +43,15 @@ const AddToy = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        form.reset();
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "You have successfully added a toy Car.",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
       });
   };
   return (

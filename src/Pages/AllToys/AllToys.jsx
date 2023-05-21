@@ -23,7 +23,7 @@ const AllToys = () => {
       <div className="overflow-x-auto w-full px-10">
         <table className="table w-full">
           {/* head */}
-          <thead className="bg-red-500">
+          <thead>
             <tr>
               <th>Seller</th>
               <th>Toy Name</th>
