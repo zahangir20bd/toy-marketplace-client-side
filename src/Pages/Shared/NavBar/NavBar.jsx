@@ -15,7 +15,7 @@ const NavBar = () => {
       })
       .catch((error) => console.log(error));
   };
-  console.log(user);
+  // console.log(user);
   return (
     <div className="navbar bg-base-300">
       <div className="navbar-start">

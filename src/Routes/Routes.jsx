@@ -9,6 +9,8 @@ import AddToy from "../Pages/AddToy/AddToy";
 import MyToys from "../Pages/MyToys/MyToys";
 import Details from "../Pages/Shared/Details/Details";
 import PrivateRoute from "./PrivateRoute";
+import UpdateToys from "../Pages/UpdateToys/UpdateToys";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -39,9 +41,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://toy-galaxy-server-seven.vercel.app/alltoys/${params.id}`
-          ),
+          fetch(`http://localhost:5000/alltoys/${params.id}`),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateToys></UpdateToys>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/alltoys/${params.id}`),
       },
       {
         path: "/addtoys",
@@ -64,6 +74,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 

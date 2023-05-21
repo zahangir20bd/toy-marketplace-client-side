@@ -24,7 +24,7 @@ const Reviews = ({ feedback }) => {
       </div>
       <div
         className={`absolute top-0 left-0 w-full h-full bg-black opacity-${
-          isHovered ? "50" : "10"
+          isHovered ? "50" : "0"
         } transition-opacity duration-500`}
       ></div>
       {isHovered && (

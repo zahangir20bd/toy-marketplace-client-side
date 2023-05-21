@@ -1,5 +1,6 @@
 import { FaPenNib, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
 const MyToyTable = ({ myToy, handleDelete }) => {
   console.log(myToy);
@@ -49,15 +50,17 @@ const MyToyTable = ({ myToy, handleDelete }) => {
         <td>{available_quantity} Pcs</td>
         <th>
           <div className="flex items-center justify-center gap-4">
-            <button className="btn btn-square btn-outline">
-              <FaPenNib />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </button>
+            <Link to={`/update/${_id}`}>
+              <button className="btn btn-square btn-outline">
+                <FaPenNib />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </button>
+            </Link>
             <button
               onClick={() => handleDelete(_id)}
               className="btn btn-square"
