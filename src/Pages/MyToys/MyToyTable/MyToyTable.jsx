@@ -16,6 +16,8 @@ const MyToyTable = ({ myToy, handleDelete }) => {
     available_quantity,
   } = myToy;
 
+  console.log(myToy.length);
+
   return (
     <tbody>
       <tr>

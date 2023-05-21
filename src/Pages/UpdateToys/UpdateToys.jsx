@@ -14,7 +14,7 @@ const UpdateToys = () => {
     const updateInfo = { price, available_quantity, details_description };
     console.log(updateInfo);
 
-    fetch(`http://localhost:5000/alltoys/${_id}`, {
+    fetch(`https://toy-galaxy-server-seven.vercel.app/alltoys/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

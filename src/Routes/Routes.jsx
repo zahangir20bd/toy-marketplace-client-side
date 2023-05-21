@@ -24,6 +24,8 @@ const router = createBrowserRouter([
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
+        loader: () =>
+          fetch("https://toy-galaxy-server-seven.vercel.app/totalToys"),
       },
       {
         path: "/mytoys",
@@ -41,7 +43,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/alltoys/${params.id}`),
+          fetch(
+            `https://toy-galaxy-server-seven.vercel.app/alltoys/${params.id}`
+          ),
       },
       {
         path: "/update/:id",
@@ -51,7 +55,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/alltoys/${params.id}`),
+          fetch(
+            `https://toy-galaxy-server-seven.vercel.app/alltoys/${params.id}`
+          ),
       },
       {
         path: "/addtoys",

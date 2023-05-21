@@ -4,7 +4,10 @@ const SportsCar = ({ sportsCar }) => {
   const { _id, toy_name, price, toy_picture } = sportsCar;
 
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+    <div
+      className="card card-compact w-96 bg-base-100 shadow-xl"
+      data-aos="zoom-in"
+    >
       <figure>
         <img src={toy_picture} alt="Toy Picture" />
       </figure>

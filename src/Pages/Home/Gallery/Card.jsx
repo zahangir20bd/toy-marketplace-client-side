@@ -18,6 +18,9 @@ const Card = ({ card }) => {
       className="relative w-full h-full shadow-2xl"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
     >
       <div className="w-full h-full">
         <img src={image} alt="Image" className="w-full h-full object-cover" />

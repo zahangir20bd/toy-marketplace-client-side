@@ -1,13 +1,12 @@
-
 # Toy Galaxy
 
 Toy Galaxy is an online toy car seller that offers a wide range of toy cars for kids and collectors alike. With a passion for toys and a focus on quality, Toy Galaxy aims to provide an enjoyable shopping experience for customers looking to add to their toy car collections or find the perfect gift for a young car enthusiast.
 
-
 ## Assignment Requirement
+
 1. making the website visually appealing.
 2. Web Site has Footer and Navbar and every page has navbar and footer without 404 page.
-3. In Navbar has **Website logo, Website name, Home, All Toys, My Toys, Add A Toy, Blogs,** and **User profile picture**. 
+3. In Navbar has **Website logo, Website name, Home, All Toys, My Toys, Add A Toy, Blogs,** and **User profile picture**.
 4. Implement a good login and registration page.
 5. Home page has banner, gallery, Category wise shoping with react tab, and attrective another 2 extra section.
 6. Has a Blogs page and I have answers all queston as my best.
@@ -22,16 +21,13 @@ Toy Galaxy is an online toy car seller that offers a wide range of toy cars for 
 
 - [@Zahangir Alam](https://www.github.com/zahangir20bd)
 
-
-
-
-
-
 ## Features
 
 - Category wise shoping
 - Private Route
 - API Data Loading, post , delete update
-etc.
+  etc.
 
+## live site link
 
+link:
