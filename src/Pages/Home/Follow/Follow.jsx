@@ -9,14 +9,12 @@ const Follow = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("review.json")
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
       });
   }, []);
-
-  console.log(reviews);
 
   return (
     <div className="my-32">
@@ -27,10 +25,10 @@ const Follow = () => {
       <h4 className="text-center mt-6 mb-16 font-semibold">
         Daily inspiration on Our Social Media
       </h4>
-
+      {/* Map reviews and load all review */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10">
         {reviews.map((feedback) => (
-          <Reviews key={feedback.id} feedback={feedback}></Reviews>
+          <Reviews key={feedback._id} feedback={feedback}></Reviews>
         ))}
       </div>
 
