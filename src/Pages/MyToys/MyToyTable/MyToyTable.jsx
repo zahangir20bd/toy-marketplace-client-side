@@ -1,9 +1,10 @@
 import { FaPenNib, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
-const MyToyTable = ({ myToy }) => {
+const MyToyTable = ({ myToy, handleDelete }) => {
   console.log(myToy);
   const {
+    _id,
     toy_picture,
     toy_name,
     price,
@@ -47,25 +48,36 @@ const MyToyTable = ({ myToy }) => {
         </td>
         <td>{available_quantity} Pcs</td>
         <th>
-          <button className="btn btn-square btn-outline mr-2">
-            <FaPenNib></FaPenNib>
-          </button>
-          <button className="btn btn-square mt-6">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+          <div className="flex items-center justify-center gap-4">
+            <button className="btn btn-square btn-outline">
+              <FaPenNib />
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M6 18L18 6M6 6l12 12"
               />
-            </svg>
-          </button>
+            </button>
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-square"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
         </th>
       </tr>
     </tbody>

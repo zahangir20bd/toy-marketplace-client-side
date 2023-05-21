@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { BeatLoader } from "react-spinners";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
 
-  const location = useLocation();
+  //   const location = useLocation();
+  //   const navigate = useNavigate();
 
   if (loading) {
     return <BeatLoader className="mx-auto" color="#36d7b7" />;
